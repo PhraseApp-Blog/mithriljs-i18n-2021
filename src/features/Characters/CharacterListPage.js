@@ -1,6 +1,6 @@
 import m from "mithril";
-import { fetchCharacters } from "./_characterListApi";
-import { fromApi } from "./_characterListModel";
+import { fetchCharacters } from "./characterApi";
+import { characterListFromApi } from "./characterModel";
 
 let state = {
   status: "loading",
@@ -10,7 +10,7 @@ let state = {
 const CharacterListPage = {
   oncreate() {
     fetchCharacters().then((results) => {
-      state.list = fromApi(results);
+      state.list = characterListFromApi(results);
       state.status = "idle";
     });
   },

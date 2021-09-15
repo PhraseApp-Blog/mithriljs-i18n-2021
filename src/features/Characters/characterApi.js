@@ -7,3 +7,7 @@ export function fetchCharacters() {
     );
   });
 }
+
+export function fetchCharacterDetails(id) {
+  return m.request(`https://swapi.dev/api/people/${id}`);
+}

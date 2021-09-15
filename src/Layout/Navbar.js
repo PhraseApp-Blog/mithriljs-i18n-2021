@@ -1,7 +1,7 @@
 import m from "mithril";
 
 const Navbar = {
-  view(vnode) {
+  view() {
     return m(
       ".navbar.u-full-width",
       m(".navbar-brand", [

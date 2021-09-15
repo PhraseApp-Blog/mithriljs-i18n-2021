@@ -1,7 +1,7 @@
 import m from "mithril";
 import Row from "./CharacterDetailRow";
-import { fetchCharacterDetails } from "./_characterDetailsApi";
-import { characterDetailsFromApi } from "./_characterDetailsModel";
+import { fetchCharacterDetails } from "./characterApi";
+import { characterDetailsFromApi } from "./characterModel";
 
 let state = {
   status: "loading",

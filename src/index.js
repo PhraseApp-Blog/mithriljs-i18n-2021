@@ -1,7 +1,7 @@
 import m from "mithril";
 import App from "./App";
-import CharacterListPage from "./features/CharacterList/CharacterListPage";
-import CharacterDetailsPage from "./features/CharacterDetails/CharacterDetailsPage";
+import CharacterListPage from "./features/Characters/CharacterListPage";
+import CharacterDetailsPage from "./features/Characters/CharacterDetailsPage";
 
 m.route(document.body, "/", {
   "/": {
