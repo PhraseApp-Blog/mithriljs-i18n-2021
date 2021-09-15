@@ -9,7 +9,7 @@ const AboutPage = {
         m("a[href=https://mithril.js.org/]", "Mithril"),
         ", ",
         m("a[href=http://getskeleton.com/]", "Skeleton"),
-        ", and ",
+        ", and data from ",
         m(
           "a[href=https://swapi.dev/]",
           "SWAPI (The Star Wars API)",
