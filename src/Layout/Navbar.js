@@ -9,7 +9,11 @@ const Navbar = {
         m(".navbar-brand-title", "Yodizer"),
       ]),
       m(".navbar-menu", [
-        m("a[href=#]", "Star Wars Characters"),
+        m(
+          m.route.Link,
+          { href: "/" },
+          "Star Wars Characters",
+        ),
         m("a[href=#]", "About"),
       ]),
     );

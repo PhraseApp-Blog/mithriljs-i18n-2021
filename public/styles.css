@@ -45,3 +45,15 @@ h1 {
 .navbar-menu a:last-child {
   margin-right: 0;
 }
+
+.character-details {
+  font-size: 1.75rem;
+  font-weight: 300;
+}
+.character-details .row {
+  padding: 12px 0;
+  border-bottom: 1px solid #e1e1e1;
+}
+.character-details .row:last-child {
+  border-bottom: none;
+}

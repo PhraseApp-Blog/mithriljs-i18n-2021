@@ -7,7 +7,7 @@ let state = {
   list: [],
 };
 
-const CharacterList = {
+const CharacterListPage = {
   oncreate() {
     fetchCharacters().then((results) => {
       state.list = fromApi(results);
@@ -33,7 +33,16 @@ const CharacterList = {
               "tbody",
               state.list.map((character) =>
                 m("tr", [
-                  m("td", character.name),
+                  m(
+                    "td",
+                    m(
+                      m.route.Link,
+                      {
+                        href: `/characters/${character.id}`,
+                      },
+                      character.name,
+                    ),
+                  ),
                   m("td", character.birth_year),
                   m("td", character.height_in_cm),
                   m("td", character.last_edited),
@@ -45,4 +54,4 @@ const CharacterList = {
   },
 };
 
-export default CharacterList;
+export default CharacterListPage;
