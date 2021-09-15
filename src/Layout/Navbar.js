@@ -14,7 +14,7 @@ const Navbar = {
           { href: "/" },
           "Star Wars Characters",
         ),
-        m("a[href=#]", "About"),
+        m(m.route.Link, { href: "/about" }, "About"),
       ]),
     );
   },

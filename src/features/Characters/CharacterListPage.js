@@ -15,7 +15,7 @@ const CharacterListPage = {
     });
   },
   view() {
-    return m("[", [
+    return [
       m("h1", "Star Wars Characters"),
       state.status === "loading"
         ? m("p", "Loading...")
@@ -48,7 +48,7 @@ const CharacterListPage = {
               ),
             ),
           ]),
-    ]);
+    ];
   },
 };
 

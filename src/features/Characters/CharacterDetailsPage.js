@@ -28,7 +28,7 @@ const CharacterDetailsPage = {
       "[",
       state.status === "loading"
         ? m("p", "Loading...")
-        : m("[", [
+        : [
             m("h1", details.name),
             m(".character-details", [
               m(Row, {
@@ -68,7 +68,7 @@ const CharacterDetailsPage = {
                 value: details.last_edited,
               }),
             ]),
-          ]),
+          ],
     );
   },
 };
