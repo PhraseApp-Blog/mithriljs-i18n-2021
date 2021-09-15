@@ -1,0 +1,47 @@
+body {
+  background: #fafafa;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+.navbar {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  height: 90px;
+}
+
+.navbar-brand {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+.navbar-brand img {
+  height: 90px;
+  width: 90px;
+  margin: 0 2px 0 -10px;
+}
+.navbar-brand-title {
+  display: inline-block;
+  font-weight: 600;
+  font-size: 2rem;
+}
+
+.navbar-menu {
+  display: flex;
+  align-items: center;
+  margin: 4px 0 0 2rem;
+  height: 45px;
+}
+.navbar-menu a {
+  display: inline-block;
+  margin-right: 2rem;
+  text-decoration: none;
+  font-variant: small-caps;
+  font-size: 1.5rem;
+}
+.navbar-menu a:last-child {
+  margin-right: 0;
+}
