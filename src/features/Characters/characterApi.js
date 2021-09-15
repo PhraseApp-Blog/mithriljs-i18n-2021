@@ -1,13 +1,15 @@
 import m from "mithril";
 
 export function fetchCharacters() {
-  return new Promise((resolve) => {
-    m.request("https://swapi.dev/api/people/").then(
-      ({ results }) => resolve(results),
-    );
-  });
+  return m.request("/data/characters.json");
 }
 
 export function fetchCharacterDetails(id) {
-  return m.request(`https://swapi.dev/api/people/${id}`);
+  return new Promise((resolve) => {
+    fetchCharacters().then((characters) =>
+      resolve(
+        characters.find((c) => c.id === parseInt(id)),
+      ),
+    );
+  });
 }

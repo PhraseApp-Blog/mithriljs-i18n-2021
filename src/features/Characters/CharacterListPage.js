@@ -25,7 +25,6 @@ const CharacterListPage = {
               m("tr", [
                 m("th", "Name"),
                 m("th", "Birth year"),
-                m("th", "Height"),
                 m("th", "Last edited"),
               ]),
             ),
@@ -44,7 +43,6 @@ const CharacterListPage = {
                     ),
                   ),
                   m("td", character.birth_year),
-                  m("td", character.height_in_cm),
                   m("td", character.last_edited),
                 ]),
               ),

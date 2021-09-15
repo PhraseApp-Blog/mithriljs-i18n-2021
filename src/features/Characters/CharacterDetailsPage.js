@@ -1,5 +1,5 @@
 import m from "mithril";
-import Row from "./CharacterDetailRow";
+import Row from "./CharacterDetailsRow";
 import { fetchCharacterDetails } from "./characterApi";
 import { characterDetailsFromApi } from "./characterModel";
 
@@ -7,6 +7,12 @@ let state = {
   status: "loading",
   details: {},
 };
+
+function innerList(arr) {
+  return arr.map((item) =>
+    m("p.character-details-inner-list-item", item),
+  );
+}
 
 const CharacterDetailsPage = {
   oncreate(vnode) {
@@ -16,28 +22,50 @@ const CharacterDetailsPage = {
     });
   },
   view() {
+    const { details } = state;
+
     return m(
       "[",
       state.status === "loading"
         ? m("p", "Loading...")
         : m("[", [
-            m("h1", state.details.name),
+            m("h1", details.name),
             m(".character-details", [
               m(Row, {
+                label: "Homeworld",
+                value: details.homeworld,
+              }),
+              m(Row, {
                 label: "Height",
-                value: state.details.height,
+                value: details.height,
               }),
               m(Row, {
                 label: "Mass",
-                value: state.details.mass,
+                value: details.mass,
               }),
               m(Row, {
-                label: "Birth Year",
-                value: state.details.birth_year,
+                label: "Birth year",
+                value: details.birth_year,
+              }),
+              m(Row, {
+                label: "Films",
+                value: innerList(details.films),
+              }),
+              m(Row, {
+                label: "Species",
+                value: innerList(details.species),
+              }),
+              m(Row, {
+                label: "Vehicles",
+                value: innerList(details.vehicles),
+              }),
+              m(Row, {
+                label: "Starships",
+                value: innerList(details.starships),
               }),
               m(Row, {
                 label: "Last edited",
-                value: state.details.last_edited,
+                value: details.last_edited,
               }),
             ]),
           ]),

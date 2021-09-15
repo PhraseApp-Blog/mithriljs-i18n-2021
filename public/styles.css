@@ -57,3 +57,13 @@ h1 {
 .character-details .row:last-child {
   border-bottom: none;
 }
+.character-details-label {
+  text-align: right;
+}
+.character-details-inner-list-item {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+.character-details-inner-list-item:first-child {
+  margin-top: 0.25rem;
+}
