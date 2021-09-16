@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --config webpack.config.js",
-    "build-dev": "webpack ./src/index.js --mode development --devtool source-map --output-path bin"
+    "build-dev": "webpack ./src/index.js --mode development --devtool source-map --output-path bin",
+    "build-prod": "webpack ./src/index.js --mode production --output-path bin"
   },
   "keywords": [],
   "author": "Phrase / Memsource GmbH",

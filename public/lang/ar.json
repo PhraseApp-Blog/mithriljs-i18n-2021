@@ -2,6 +2,7 @@
   "app_name": "يودايزر",
   "star_wars_characters": "شخصيات ستار ورز",
   "about": "نبذة عن",
+  "character_name": "شخصية — {name}",
   "homeworld": "كوكب الوطن",
   "height": "الطول",
   "mass": "الوزن",

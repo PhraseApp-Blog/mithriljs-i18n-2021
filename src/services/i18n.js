@@ -21,8 +21,20 @@ const i18n = {
   removeOnChangeListener,
 };
 
-export function t(key) {
-  return i18n.messages[key] || key;
+export function t(key, interpolations = {}) {
+  const message = i18n.messages[key] || key;
+  return interpolate(message, interpolations);
+}
+
+function interpolate(message, interpolations) {
+  return Object.keys(interpolations).reduce(
+    (msg, key) =>
+      msg.replace(
+        new RegExp(`{\\s*${key}\\s*}`),
+        interpolations[key],
+      ),
+    message,
+  );
 }
 
 function loadAndSetLocale(newLocale) {

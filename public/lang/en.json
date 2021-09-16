@@ -2,6 +2,7 @@
   "app_name": "Yodizer",
   "star_wars_characters": "Star Wars Characters",
   "about": "About",
+  "character_name": "Character — {name}",
   "homeworld": "Homeworld",
   "height": "Height",
   "mass": "Mass",

@@ -46,7 +46,10 @@ const CharacterDetailsPage = {
       state.status === "loading"
         ? m("p", "Loading...")
         : [
-            m("h1", details.name),
+            m(
+              "h1",
+              t("character_name", { name: details.name }),
+            ),
             m(".character-details", [
               m(Row, {
                 label: t("homeworld"),
