@@ -51,3 +51,9 @@ export function localizedLink(href, ...args) {
     children,
   );
 }
+
+export function currentPathToLocale(newLocale) {
+  const pathParts = m.route.get().split("/");
+  pathParts[1] = newLocale;
+  return pathParts.join("/");
+}

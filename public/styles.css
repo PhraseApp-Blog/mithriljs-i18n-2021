@@ -17,6 +17,7 @@ h1 {
   display: flex;
   justify-content: start;
   align-items: center;
+  margin-top: -4px;
 }
 .navbar-brand img {
   height: 90px;
@@ -32,7 +33,7 @@ h1 {
 .navbar-menu {
   display: flex;
   align-items: center;
-  margin: 4px 0 0 2rem;
+  margin: 0 0 0 2rem;
   height: 45px;
 }
 .navbar-menu a {
@@ -44,6 +45,15 @@ h1 {
 }
 .navbar-menu a:last-child {
   margin-right: 0;
+}
+
+.navbar-end {
+  flex-grow: 1;
+  text-align: right;
+}
+
+.lang-switcher {
+  margin-top: 12px;
 }
 
 .character-details {

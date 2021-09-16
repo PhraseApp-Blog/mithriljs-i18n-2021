@@ -1,4 +1,5 @@
 import m from "mithril";
+import LangSwitcher from "../features/LangSwitcher/LangSwitcher";
 import { t } from "../services/i18n";
 import { localizedLink } from "../services/i18nRouting";
 
@@ -14,6 +15,7 @@ const Navbar = {
         localizedLink("/", t("star_wars_characters")),
         localizedLink("/about", t("about")),
       ]),
+      m(".navbar-end", m(LangSwitcher)),
     );
   },
 };
