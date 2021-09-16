@@ -36,7 +36,7 @@ function loadAndSetLocale(newLocale) {
 
   i18n.status = "loading";
 
-  fetchLocale(resolvedLocale, (messages) => {
+  fetchMessages(resolvedLocale, (messages) => {
     i18n.messages = messages;
     i18n.currentLocale = resolvedLocale;
     i18n.status = "idle";
@@ -51,7 +51,7 @@ function supported(locale) {
   return Object.keys(supportedLocales).indexOf(locale) > -1;
 }
 
-function fetchLocale(locale, onComplete) {
+function fetchMessages(locale, onComplete) {
   m.request(messageUrl.replace("{locale}", locale)).then(
     (data) => onComplete(data),
   );
