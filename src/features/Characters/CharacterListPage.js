@@ -1,22 +1,35 @@
 import m from "mithril";
+import i18n from "../../services/i18n";
+import { localizedLink } from "../../services/i18nRouting";
 import { fetchCharacters } from "./characterApi";
 import { characterListFromApi } from "./characterModel";
+
+const { t } = i18n;
 
 let state = {
   status: "loading",
   list: [],
 };
 
+function loadCharacters() {
+  state.status = "loading";
+  fetchCharacters(i18n.currentLocale).then((results) => {
+    state.list = characterListFromApi(results);
+    state.status = "idle";
+  });
+}
+
 const CharacterListPage = {
   oncreate() {
-    fetchCharacters().then((results) => {
-      state.list = characterListFromApi(results);
-      state.status = "idle";
-    });
+    loadCharacters();
+    i18n.addOnChangeListener(loadCharacters);
+  },
+  onremove() {
+    i18n.removeOnChangeListener(loadCharacters);
   },
   view() {
     return [
-      m("h1", "Star Wars Characters"),
+      m("h1", t("star_wars_characters")),
       state.status === "loading"
         ? m("p", "Loading...")
         : m("table.u-full-width", [
@@ -34,11 +47,8 @@ const CharacterListPage = {
                 m("tr", [
                   m(
                     "td",
-                    m(
-                      m.route.Link,
-                      {
-                        href: `/characters/${character.id}`,
-                      },
+                    localizedLink(
+                      `/characters/${character.id}`,
                       character.name,
                     ),
                   ),

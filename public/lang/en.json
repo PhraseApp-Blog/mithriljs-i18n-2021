@@ -1,5 +1,14 @@
 {
   "app_name": "Yodizer",
   "star_wars_characters": "Star Wars Characters",
-  "about": "About"
+  "about": "About",
+  "homeworld": "Homeworld",
+  "height": "Height",
+  "mass": "Mass",
+  "birth_year": "Birth year",
+  "films": "Films",
+  "species": "Species",
+  "vehicles": "Vehicles",
+  "starships": "Starships",
+  "last_edited": "Last edited"
 }

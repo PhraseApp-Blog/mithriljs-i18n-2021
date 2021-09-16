@@ -1,7 +1,10 @@
 import m from "mithril";
+import i18n from "../../services/i18n";
 import Row from "./CharacterDetailsRow";
 import { fetchCharacterDetails } from "./characterApi";
 import { characterDetailsFromApi } from "./characterModel";
+
+const { t } = i18n;
 
 let state = {
   status: "loading",
@@ -14,12 +17,26 @@ function innerList(arr) {
   );
 }
 
-const CharacterDetailsPage = {
-  oncreate(vnode) {
-    fetchCharacterDetails(vnode.attrs.id).then((result) => {
+function loadCharacterDetails(id) {
+  return fetchCharacterDetails(id, i18n.currentLocale).then(
+    (result) => {
       state.details = characterDetailsFromApi(result);
       state.status = "idle";
-    });
+    },
+  );
+}
+
+const CharacterDetailsPage = {
+  oncreate(vnode) {
+    this.loader = loadCharacterDetails.bind(
+      null,
+      vnode.attrs.id,
+    );
+    this.loader();
+    i18n.addOnChangeListener(this.loader);
+  },
+  onremove() {
+    i18n.removeOnChangeListener(this.loader);
   },
   view() {
     const { details } = state;
@@ -32,39 +49,39 @@ const CharacterDetailsPage = {
             m("h1", details.name),
             m(".character-details", [
               m(Row, {
-                label: "Homeworld",
+                label: t("homeworld"),
                 value: details.homeworld,
               }),
               m(Row, {
-                label: "Height",
+                label: t("height"),
                 value: details.height,
               }),
               m(Row, {
-                label: "Mass",
+                label: t("mass"),
                 value: details.mass,
               }),
               m(Row, {
-                label: "Birth year",
+                label: t("birth_year"),
                 value: details.birth_year,
               }),
               m(Row, {
-                label: "Films",
+                label: t("films"),
                 value: innerList(details.films),
               }),
               m(Row, {
-                label: "Species",
+                label: t("species"),
                 value: innerList(details.species),
               }),
               m(Row, {
-                label: "Vehicles",
+                label: t("vehicles"),
                 value: innerList(details.vehicles),
               }),
               m(Row, {
-                label: "Starships",
+                label: t("starships"),
                 value: innerList(details.starships),
               }),
               m(Row, {
-                label: "Last edited",
+                label: t("last_edited"),
                 value: details.last_edited,
               }),
             ]),

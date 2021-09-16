@@ -1,5 +1,6 @@
 import m from "mithril";
 import { t } from "../services/i18n";
+import { localizedLink } from "../services/i18nRouting";
 
 const Navbar = {
   view() {
@@ -10,12 +11,8 @@ const Navbar = {
         m(".navbar-brand-title", t("app_name")),
       ]),
       m(".navbar-menu", [
-        m(
-          m.route.Link,
-          { href: "/" },
-          t("star_wars_characters"),
-        ),
-        m(m.route.Link, { href: "/about" }, t("about")),
+        localizedLink("/", t("star_wars_characters")),
+        localizedLink("/about", t("about")),
       ]),
     );
   },

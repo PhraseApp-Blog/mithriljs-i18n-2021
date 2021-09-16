@@ -1,5 +1,14 @@
 {
   "app_name": "يودايزر",
-  "star_wars_characters": "شخصيات ستار وورز",
-  "about": "نبذة عن"
+  "star_wars_characters": "شخصيات ستار ورز",
+  "about": "نبذة عن",
+  "homeworld": "كوكب الوطن",
+  "height": "الطول",
+  "mass": "الوزن",
+  "birth_year": "سنة الميلاد",
+  "films": "الأفلام",
+  "species": "التصنيفات",
+  "vehicles": "المركبات",
+  "starships": "السفن الفضائية",
+  "last_edited": "آخر تحرير"
 }

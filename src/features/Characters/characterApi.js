@@ -1,12 +1,12 @@
 import m from "mithril";
 
-export function fetchCharacters() {
-  return m.request("/data/characters.json");
+export function fetchCharacters(locale) {
+  return m.request(`/data/data-${locale}.json`);
 }
 
-export function fetchCharacterDetails(id) {
+export function fetchCharacterDetails(id, locale) {
   return new Promise((resolve) => {
-    fetchCharacters().then((characters) =>
+    fetchCharacters(locale).then((characters) =>
       resolve(
         characters.find((c) => c.id === parseInt(id)),
       ),

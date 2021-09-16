@@ -12,10 +12,13 @@ const i18n = {
   supportedLocales,
   currentLocale: "",
   messages: {},
+  onChangeListeners: [],
   status: "loading",
   t,
   loadAndSetLocale,
   supported,
+  addOnChangeListener,
+  removeOnChangeListener,
 };
 
 export function t(key) {
@@ -37,6 +40,10 @@ function loadAndSetLocale(newLocale) {
     i18n.messages = messages;
     i18n.currentLocale = resolvedLocale;
     i18n.status = "idle";
+
+    i18n.onChangeListeners.forEach((callback) =>
+      callback(),
+    );
   });
 }
 
@@ -48,6 +55,23 @@ function fetchLocale(locale, onComplete) {
   m.request(messageUrl.replace("{locale}", locale)).then(
     (data) => onComplete(data),
   );
+}
+
+function addOnChangeListener(callback) {
+  i18n.onChangeListeners.push(callback);
+}
+
+function removeOnChangeListener(callback) {
+  const callbackIndex =
+    i18n.onChangeListeners.indexOf(callback);
+
+  if (callbackIndex > -1) {
+    i18n.onChangeListeners = i18n.onChangeListeners.filter(
+      (_, index) => {
+        index !== callbackIndex;
+      },
+    );
+  }
 }
 
 export default i18n;
