@@ -28,10 +28,10 @@ export function t(key, interpolations = {}) {
 
 function interpolate(message, interpolations) {
   return Object.keys(interpolations).reduce(
-    (msg, key) =>
+    (msg, variableName) =>
       msg.replace(
-        new RegExp(`{\\s*${key}\\s*}`),
-        interpolations[key],
+        new RegExp(`{\\s*${variableName}\\s*}`, "g"),
+        interpolations[variableName],
       ),
     message,
   );
