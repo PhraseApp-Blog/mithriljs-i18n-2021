@@ -65,7 +65,7 @@ function supported(locale) {
 
 function fetchMessages(locale, onComplete) {
   m.request(messageUrl.replace("{locale}", locale)).then(
-    (data) => onComplete(data),
+    onComplete,
   );
 }
 
