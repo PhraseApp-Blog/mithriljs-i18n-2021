@@ -14,14 +14,14 @@ export function localizedRoutes(routes) {
 }
 
 export function setLocaleFromRoute() {
-  const newLocale = m.route.param(localeParam);
+  const routeLocale = m.route.param(localeParam);
 
-  if (newLocale === i18n.currentLocale) {
+  if (routeLocale === i18n.currentLocale) {
     return;
   }
 
-  if (i18n.supported(newLocale)) {
-    i18n.loadAndSetLocale(newLocale);
+  if (i18n.supported(routeLocale)) {
+    i18n.loadAndSetLocale(routeLocale);
   } else {
     m.route.set(`/${i18n.defaultLocale}`);
   }
