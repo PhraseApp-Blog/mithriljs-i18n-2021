@@ -6,10 +6,10 @@ import Layout from "./Layout/Layout";
 const App = {
   oncreate: setLocaleFromRoute,
   onupdate: setLocaleFromRoute,
-  view(vode) {
+  view(vnode) {
     return i18n.status === "loading"
       ? m("p", "Loading...")
-      : m(Layout, vode.children);
+      : m(Layout, vnode.children);
   },
 };
 
