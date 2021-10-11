@@ -1,6 +1,12 @@
 {
   "app_name": "Yodizer",
   "star_wars_characters": "Star Wars Characters",
+  "character_count": {
+    "plural": {
+      "other": "{count} characters",
+      "one": "{count} character"
+    }
+  },
   "about": "About",
   "character_name": "Character — {name}",
   "homeworld": "Homeworld",

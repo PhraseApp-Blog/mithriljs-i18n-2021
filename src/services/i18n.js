@@ -23,7 +23,23 @@ const i18n = {
 
 export function t(key, interpolations = {}) {
   const message = i18n.messages[key] || key;
-  return interpolate(message, interpolations);
+
+  const pluralizedMessage = pluralForm(
+    message,
+    interpolations.count,
+  );
+
+  return interpolate(pluralizedMessage, interpolations);
+}
+
+function pluralForm(message, count) {
+  if (!message["plural"]) {
+    return message;
+  }
+
+  const rules = new Intl.PluralRules(i18n.currentLocale);
+
+  return message.plural[rules.select(count)];
 }
 
 function interpolate(message, interpolations) {

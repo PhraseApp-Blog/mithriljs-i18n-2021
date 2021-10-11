@@ -1,6 +1,16 @@
 {
   "app_name": "يودايزر",
   "star_wars_characters": "شخصيات ستار ورز",
+  "character_count": {
+    "plural": {
+      "other": "{count} شخصية",
+      "zero": "لا توجد شخصيات",
+      "one": "شخصية واحدة",
+      "two": "شخصيتان",
+      "few": "{count} شخصيات",
+      "many": "{count} شخصية"
+    }
+  },
   "about": "نبذة عن",
   "character_name": "شخصية — {name}",
   "homeworld": "كوكب الوطن",

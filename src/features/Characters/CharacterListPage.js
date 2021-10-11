@@ -29,7 +29,15 @@ const CharacterListPage = {
   },
   view() {
     return [
-      m("h1", t("star_wars_characters")),
+      m(".header", [
+        m("h1", t("star_wars_characters")),
+        m(
+          "span",
+          t("character_count", {
+            count: state.list.length,
+          }),
+        ),
+      ]),
       state.status === "loading"
         ? m("p", "Loading...")
         : m("table.u-full-width", [
