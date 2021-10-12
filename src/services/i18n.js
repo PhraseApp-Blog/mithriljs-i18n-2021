@@ -5,6 +5,10 @@ const supportedLocales = {
   en: "English",
   ar: "Arabic (العربية)",
 };
+const defaultFullyQualifiedLocales = {
+  en: "en-US",
+  ar: "ar-EG",
+};
 const messageUrl = "/lang/{locale}.json";
 
 const i18n = {
@@ -15,6 +19,7 @@ const i18n = {
   onChangeListeners: [],
   status: "loading",
   t,
+  number,
   loadAndSetLocale,
   supported,
   addOnChangeListener,
@@ -29,7 +34,22 @@ export function t(key, interpolations = {}) {
     interpolations.count,
   );
 
-  return interpolate(pluralizedMessage, interpolations);
+  const numberFormattedInterpolations =
+    formatNumbersInObject(interpolations);
+
+  return interpolate(
+    pluralizedMessage,
+    numberFormattedInterpolations,
+  );
+}
+
+export function number(num, options = {}) {
+  const formatter = new Intl.NumberFormat(
+    defaultFullyQualifiedLocales[i18n.currentLocale],
+    options,
+  );
+
+  return formatter.format(num);
 }
 
 function pluralForm(message, count) {
@@ -51,6 +71,19 @@ function interpolate(message, interpolations) {
       ),
     message,
   );
+}
+
+function formatNumbersInObject(obj) {
+  const result = {};
+
+  Object.keys(obj).forEach((key) => {
+    const value = obj[key];
+
+    result[key] =
+      typeof value === "number" ? number(value) : value;
+  });
+
+  return result;
 }
 
 function loadAndSetLocale(newLocale) {
