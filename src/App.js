@@ -5,7 +5,7 @@ import Layout from "./Layout/Layout";
 
 function updateHtmlLocalization(currentLocale) {
   document.documentElement.lang = currentLocale;
-  document.documentElement.dir = i18n.dir(currentLocale);
+  document.documentElement.dir = i18n.dir();
   document.title = i18n.t("app_name");
 }
 

@@ -126,7 +126,7 @@ function supported(locale) {
   return Object.keys(supportedLocales).indexOf(locale) > -1;
 }
 
-function dir(locale) {
+function dir(locale = i18n.currentLocale) {
   return locale === "ar" ? "rtl" : "ltr";
 }
 
