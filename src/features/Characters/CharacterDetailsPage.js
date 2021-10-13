@@ -85,7 +85,9 @@ const CharacterDetailsPage = {
               }),
               m(Row, {
                 label: t("last_edited"),
-                value: details.last_edited,
+                value: i18n.date(details.last_edited, {
+                  dateStyle: "full",
+                }),
               }),
             ]),
           ],

@@ -44,9 +44,9 @@ const CharacterListPage = {
             m(
               "thead",
               m("tr", [
-                m("th", "Name"),
-                m("th", "Birth year"),
-                m("th", "Last edited"),
+                m("th", t("name")),
+                m("th", t("birth_year")),
+                m("th", t("last_edited")),
               ]),
             ),
             m(
