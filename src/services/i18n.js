@@ -138,15 +138,8 @@ function addOnChangeListener(listener) {
 }
 
 function removeOnChangeListener(listener) {
-  const removingListenerIndex =
-    i18n.onChangeListeners.indexOf(listener);
-
-  if (removingListenerIndex === -1) {
-    return;
-  }
-
   i18n.onChangeListeners = i18n.onChangeListeners.filter(
-    (_, index) => index !== removingListenerIndex,
+    (currentListener) => currentListener !== listener,
   );
 }
 
