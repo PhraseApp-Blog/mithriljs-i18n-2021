@@ -60,10 +60,7 @@ export function date(date, options = {}) {
     options,
   );
 
-  const resolvedDate =
-    typeof date === "string" ? new Date(date) : date;
-
-  return formatter.format(resolvedDate);
+  return formatter.format(new Date(date));
 }
 
 function pluralForm(message, count) {
