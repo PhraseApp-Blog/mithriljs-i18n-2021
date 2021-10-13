@@ -23,6 +23,7 @@ const i18n = {
   date,
   loadAndSetLocale,
   supported,
+  dir,
   addOnChangeListener,
   removeOnChangeListener,
 };
@@ -115,8 +116,8 @@ function loadAndSetLocale(newLocale) {
     i18n.currentLocale = resolvedLocale;
     i18n.status = "idle";
 
-    i18n.onChangeListeners.forEach((callback) =>
-      callback(),
+    i18n.onChangeListeners.forEach((listener) =>
+      listener(i18n.currentLocale),
     );
   });
 }
@@ -125,27 +126,31 @@ function supported(locale) {
   return Object.keys(supportedLocales).indexOf(locale) > -1;
 }
 
+function dir(locale) {
+  return locale === "ar" ? "rtl" : "ltr";
+}
+
 function fetchMessages(locale, onComplete) {
   m.request(messageUrl.replace("{locale}", locale)).then(
     onComplete,
   );
 }
 
-function addOnChangeListener(callback) {
-  i18n.onChangeListeners.push(callback);
+function addOnChangeListener(listener) {
+  i18n.onChangeListeners.push(listener);
 }
 
-function removeOnChangeListener(callback) {
-  const callbackIndex =
-    i18n.onChangeListeners.indexOf(callback);
+function removeOnChangeListener(listener) {
+  const removingListenerIndex =
+    i18n.onChangeListeners.indexOf(listener);
 
-  if (callbackIndex > -1) {
-    i18n.onChangeListeners = i18n.onChangeListeners.filter(
-      (_, index) => {
-        index !== callbackIndex;
-      },
-    );
+  if (removingListenerIndex === -1) {
+    return;
   }
+
+  i18n.onChangeListeners = i18n.onChangeListeners.filter(
+    (_, index) => index !== removingListenerIndex,
+  );
 }
 
 export default i18n;

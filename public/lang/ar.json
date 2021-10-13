@@ -12,7 +12,7 @@
       "many": "{count} شخصية"
     }
   },
-  "name": "",
+  "name": "الإسم",
   "birth_year": "سنة الميلاد",
   "last_edited": "آخر تحرير",
   "character_name": "شخصية — {name}",

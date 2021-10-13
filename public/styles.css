@@ -6,6 +6,32 @@ h1 {
   font-size: 3rem;
 }
 
+[dir="rtl"] th,
+[dir="rtl"] td {
+  text-align: right;
+}
+[dir="rtl"] th:first-child,
+[dir="rtl"] td:first-child {
+  padding-left: 15px;
+  padding-right: 0;
+}
+
+[dir="rtl"] .columns,
+[dir="rtl"] .column {
+  float: right;
+}
+@media (min-width: 550px) {
+  [dir="rtl"] .column:first-child,
+  [dir="rtl"] .columns:first-child {
+    margin-right: 0;
+  }
+  [dir="rtl"] .column,
+  [dir="rtl"] .columns {
+    margin-left: 0;
+    margin-right: 4%;
+  }
+}
+
 .navbar {
   display: flex;
   justify-content: start;
@@ -24,6 +50,9 @@ h1 {
   width: 90px;
   margin: 0 2px 0 -10px;
 }
+[dir="rtl"] .navbar-brand img {
+  margin: 0 -10px 0 2px;
+}
 .navbar-brand-title {
   display: inline-block;
   font-weight: 600;
@@ -36,6 +65,9 @@ h1 {
   margin: 0 0 0 2rem;
   height: 45px;
 }
+[dir="rtl"] .navbar-menu {
+  margin: 0 2rem 0 0;
+}
 .navbar-menu a {
   display: inline-block;
   margin-right: 2rem;
@@ -43,13 +75,23 @@ h1 {
   font-variant: small-caps;
   font-size: 1.5rem;
 }
+[dir="rtl"] .navbar-menu a {
+  margin-right: 0;
+  margin-left: 2rem;
+}
 .navbar-menu a:last-child {
   margin-right: 0;
+}
+[dir="rtl"] .navbar-menu a:last-child {
+  margin-left: 0;
 }
 
 .navbar-end {
   flex-grow: 1;
   text-align: right;
+}
+[dir="rtl"] .navbar-end {
+  text-align: left;
 }
 
 .lang-switcher {
@@ -75,6 +117,9 @@ h1 {
 }
 .character-details-label {
   text-align: right;
+}
+[dir="rtl"] .character-details-label {
+  text-align: left;
 }
 .character-details-inner-list-item {
   font-size: 1.5rem;
