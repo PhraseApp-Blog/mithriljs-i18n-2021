@@ -61,7 +61,12 @@ const CharacterListPage = {
                     ),
                   ),
                   m("td", character.birth_year),
-                  m("td", character.last_edited),
+                  m(
+                    "td",
+                    i18n.date(character.last_edited, {
+                      dateStyle: "full",
+                    }),
+                  ),
                 ]),
               ),
             ),

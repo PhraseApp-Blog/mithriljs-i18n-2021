@@ -20,6 +20,7 @@ const i18n = {
   status: "loading",
   t,
   number,
+  date,
   loadAndSetLocale,
   supported,
   addOnChangeListener,
@@ -50,6 +51,18 @@ export function number(num, options = {}) {
   );
 
   return formatter.format(num);
+}
+
+export function date(date, options = {}) {
+  const formatter = new Intl.DateTimeFormat(
+    defaultFullyQualifiedLocales[i18n.currentLocale],
+    options,
+  );
+
+  const resolvedDate =
+    typeof date === "string" ? new Date(date) : date;
+
+  return formatter.format(resolvedDate);
 }
 
 function pluralForm(message, count) {

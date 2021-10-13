@@ -1,21 +1,22 @@
 {
   "app_name": "Yodizer",
   "star_wars_characters": "Star Wars Characters",
+  "about": "About",
   "character_count": {
     "plural": {
       "other": "{count} characters",
       "one": "{count} character"
     }
   },
-  "about": "About",
+  "name": "Name",
+  "birth_year": "Birth year",
+  "last_edited": "Last edited",
   "character_name": "Character — {name}",
   "homeworld": "Homeworld",
   "height": "Height",
   "mass": "Mass",
-  "birth_year": "Birth year",
   "films": "Films",
   "species": "Species",
   "vehicles": "Vehicles",
-  "starships": "Starships",
-  "last_edited": "Last edited"
+  "starships": "Starships"
 }
